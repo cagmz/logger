@@ -19,7 +19,7 @@ if [ -n "$2" ]
 then
 	output_file="$1"
 	if [ "$2" = "start" ]; then
-		script $output_file
+		script -f $output_file
 	elif [ "$2" = "clean" ]; then
 		cat $output_file | perl -pe "'s/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g'" | col -b > $output_file-processed.txt
 	else
@@ -28,4 +28,3 @@ then
 else
 	displayUsage
 fi
-
